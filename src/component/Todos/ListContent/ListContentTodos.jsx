@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../../../assets/style.css'
+import "../../../assets/style.css";
 
 const ListContentTodos = () => {
   const [posts, setPosts] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function GetPosts() {
     try {
@@ -24,16 +24,10 @@ const ListContentTodos = () => {
   useEffect(() => {
     GetPosts();
   }, []);
+  console.log(posts);
 
-  async function ClickRender(postItem){
-    navigate(`/todolist/${postItem.id}`, {
-        state : {
-            from : "HomePage", 
-            idPost : postItem.id,
-            titlePost : postItem.title,
-            completePost : postItem.completed
-        }
-    })
+  async function ClickRender(postItem) {
+    navigate(`/todolist/${postItem.id}`);
   }
 
   return (

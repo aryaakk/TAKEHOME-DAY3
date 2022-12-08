@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../../assets/style.css'
+import "../../assets/style.css";
 
 const ListContentUsers = () => {
   const [posts, setPosts] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function GetPosts() {
     try {
@@ -25,17 +25,8 @@ const ListContentUsers = () => {
     GetPosts();
   }, []);
 
-  async function ClickRender(postItem){
-    navigate(`/userslist/${postItem.id}`, {
-        state : {
-            from : "HomePage", 
-            idPost : postItem.id,
-            namePost : postItem.name,
-            usernamePost : postItem.username,
-            emailPost : postItem.email,
-            websitePost : postItem.website
-        }
-    })
+  async function ClickRender(postItem) {
+    navigate(`/userslist/${postItem.id}`);
   }
 
   return (

@@ -1,28 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../assets/style.css";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const ContentViewTodos = () => {
-  const { state } = useLocation();
-  console.log(state);
   const { id } = useParams();
-  let Complete;
-  if(state.completePost == false){
-    Complete = "BELUM SELESAI"
-  }else{
-    Complete = "SELESAI"
+  const [todos, SetTodo] = useState("");
+  async function GetPosts() {
+    try {
+      const response = await axios.get(
+        `https://jsonplaceholder.typicode.com/todos/${id}`
+      );
+      if (response.status == 200) {
+        SetTodo(response.data);
+      }
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
+  let complete
+  if (todos.completed == false) {
+    complete = "BELUM SELESAI"
+  }else{
+    complete = "SELESAI"
+  }
+  
+  useEffect(() => {
+    GetPosts();
+  }, []);
 
+  console.log(todos.title)
   return (
     <>
       <div className="contentPost">
         <div className="content">
-          <div className="header">
-            <span>{state.titlePost}</span>
-          </div>
-          <div className="isi">
-            <span>{Complete}</span>
-          </div>
+          <>
+            <div className="header"><span>{todos.title}</span></div>
+              <div className="isi"><span>{complete}</span></div>
+          </>
         </div>
       </div>
     </>

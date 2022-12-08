@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Kanit&family=Secular+One&display=swap');
+
+:root {
+    --font1: 'Jost', sans-serif;
+    --font2: 'Kanit', sans-serif;
+    --font3: 'Secular One', sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #774936;
+}
+
+.wrapperHeader{
+    padding: 20px;
+    width: 100%;
+    position: fixed;
+    cursor: pointer;
+}
+
+.wrapperHeader .header{
+    text-align: center;
+    box-shadow: 7px 9px 20px rgba(0,0,0,0.2);
+    background-color: #eda268b8;
+    backdrop-filter: blur(7px);
+    padding: 20px;
+    border-radius: 10px;
+    font-family: var(--font1);
+    font-size: 30px;
+    color: #252525;
+    font-weight: bold;
+    color: #FFDCC2;
+}
+
+.wrapper {
+    padding: 10rem 20px;
+    /* position: fixed; */
+}
+
+.wrapper .contentNav{
+    display: flex;
+    width: 100%;
+    background-color: #DA7E37;
+    gap: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.wrapper .contentNav .aLink{
+    text-decoration: none;
+    color: #FFDCC2;
+    font-family: var(--font3);
+    padding: 10px;
+}
+
+.wrapPost{
+    margin:25px 10px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.wrapPost .list{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #FFC599;
+    padding: 25px;
+    cursor: pointer;
+    font-family: var(--font2);
+    font-size: 20px;
+    transition: all 0.3s;
+    border-radius: 10px;
+}
+
+.wrapPost .list:hover{
+    background-color: #8F3E00;
+    color: #FFDCC2;
+}
+
+.contentPost{
+    margin: 20px;
+    display: flex;
+}
+
+.contentPost .content{
+    background-color: #FFD1AD;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contentPost .content .header{
+    font-family: var(--font1);
+    font-size: 40px;
+    font-weight: bold;
+    padding: 0 0 30px 0;
+}
+
+.contentPost .content .isi{
+    font-family: var(--font2);
+    font-size: 20px;
+    color: #252525cd;
+}
